@@ -1,0 +1,142 @@
+01-复杂度1 最大子列和问题 （20 分）
+
+Solution 1: O(N^3)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAXN 100000
+
+int main(int argc, char **argv){
+    int a[MAXN];
+    int CurrSum = 0, MaxSum = 0;
+    int Num;
+    scanf("%d",&Num);
+    int i,j,k;
+    for(i = 0;i < Num;i++) scanf("%d",&a[i]);
+    for(i = 0;i < Num;i++){
+        for (j = i;j<Num;j++){
+            CurrSum = 0;
+            for(k = i;k <= j;k++){
+                CurrSum += a[k];
+            }
+            if (CurrSum > MaxSum) MaxSum = CurrSum;
+        }
+    }
+    printf("%d",MaxSum);
+    return 0;
+}
+
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-1.png)
+
+
+
+
+
+Solution 2: O(N^2)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAXN 100000
+
+int main(int argc, char **argv){
+    int a[MAXN];
+    int CurrSum = 0, MaxSum = 0;
+    int Num;
+    scanf("%d",&Num);
+    int i,j,k;
+    for(i = 0;i < Num;i++) scanf("%d",&a[i]);
+    for(i = 0;i < Num;i++){
+          CurrSum = 0;
+        for (j = i;j<Num;j++){
+                CurrSum += a[j];
+            if (CurrSum > MaxSum) MaxSum = CurrSum;
+        }
+    }
+    printf("%d",MaxSum);
+    return 0;
+}
+
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-2.png)
+
+
+
+Solution 3: O(NlogN)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAXN 100000
+
+int main(int argc, char **argv){
+    int MaxOfSeq(int *,int,int);
+    int a[MAXN];
+    int CurrSum = 0, MaxSum = 0;
+    int Num;
+    scanf("%d",&Num);
+    int i;
+    for(i = 0; i < Num; i++) scanf("%d",&a[i]);
+    printf("%d",MaxOfSeq(a,0,Num-1));
+    return 0;
+}
+
+int MaxOfSeq(int a[MAXN],int le,int re){
+    int MaxOfThree(int,int,int);
+    if (le == re) return a[le];
+    if (le == re - 1){
+        if( a[le] > a[re]) return a[le];
+        else return a[re];
+    }
+    int mid = ((le + re) / 2);
+    int ls = 0,tls = 0, rs = 0,trs = 0;
+    int i;
+    for (i = mid;i>= le;i--){
+        tls += a[i];
+        if (tls>ls) ls = tls;
+    }
+    for (i = mid+1;i<=re;i++){
+        trs += a[i];
+        if (trs>rs) rs = trs;
+    }
+    return MaxOfThree(MaxOfSeq(a,le,mid),MaxOfSeq(a,mid+1,re),ls+rs);
+}
+
+
+int MaxOfThree(int a,int b,int c){
+    int max = a;
+    if (max < b) max = b;
+    if (max < c) max = c;
+    return max;
+}
+
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-3.png)
+
+
+
+Solution 4: O(N)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAXN 100000
+
+int main(int argc, char **argv){
+    int a[MAXN];
+    int CurrSum = 0, MaxSum = 0;
+    int Num;
+    scanf("%d",&Num);
+    int i;
+    for(i = 0;i < Num;i++) scanf("%d",&a[i]);
+    for(i = 0;i < Num;i++){
+        CurrSum += a[i];
+            if (CurrSum > MaxSum) MaxSum = CurrSum;
+            if (CurrSum < 0) CurrSum = 0;
+    }
+    printf("%d",MaxSum);
+    return 0;
+}
+
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-4.png)
+
+

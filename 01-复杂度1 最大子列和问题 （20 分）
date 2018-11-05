@@ -27,7 +27,7 @@ int main(int argc, char **argv){
     return 0;
 }
 
-![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-1.png)
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/image/01-Solution-1.png)
 
 
 
@@ -58,7 +58,7 @@ int main(int argc, char **argv){
     return 0;
 }
 
-![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-2.png)
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/image/01-Solution-2.png)
 
 
 
@@ -110,7 +110,7 @@ int MaxOfThree(int a,int b,int c){
     return max;
 }
 
-![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-3.png)
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/image/01-Solution-3.png)
 
 
 
@@ -137,6 +137,6 @@ int main(int argc, char **argv){
     return 0;
 }
 
-![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/images/01-Solution-4.png)
+![image](http://github.com/Ritue/PTA-MOOC-Data-Structure-2018-Fall/raw/master/image/01-Solution-4.png)
 
 
